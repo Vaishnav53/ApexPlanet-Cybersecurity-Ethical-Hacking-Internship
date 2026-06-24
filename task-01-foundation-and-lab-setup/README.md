@@ -77,6 +77,45 @@ Build strong fundamentals in cybersecurity, networking, cryptography, Linux admi
 * [Networking Basics](./notes/networking-basics.md)
 * [Cryptography Basics](./notes/cryptography-basics.md)
 
+* ## Project Structure
+
+```text
+task-01-foundation-and-lab-setup/
+│
+├── README.md
+│
+├── screenshots/
+│   ├── kali-linux/
+│   ├── metasploitable2/
+│   ├── networking/
+│   ├── wireshark/
+│   ├── nmap/
+│   ├── burp-suite/
+│   ├── netcat/
+│   └── openssl/
+│
+├── notes/
+│   ├── cybersecurity-basics.md
+│   ├── linux-fundamentals.md
+│   ├── networking-basics.md
+│   └── cryptography-basics.md
+│
+├── practicals/
+│   ├── lab-setup.md
+│   ├── openssl-practical.md
+│   ├── wireshark-practical.md
+│   ├── nmap-practical.md
+│   ├── burp-suite-practical.md
+│   └── netcat-practical.md
+│
+├── reports/
+│   └── task-01-final-report.md
+│
+└── resources/
+    └── linux-cheatsheet.md
+```
+
+
 ### Practicals
 
 * [Lab Setup](./practicals/lab-setup.md)
