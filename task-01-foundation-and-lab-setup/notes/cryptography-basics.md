@@ -1,224 +1,300 @@
-# Networking Basics
+# Cryptography Basics
 
 ## Introduction
 
-Networking is the foundation of communication between devices, systems, and applications. Understanding networking concepts is essential for cybersecurity professionals because most attacks, defenses, monitoring, and investigations occur over networks.
+Cryptography is the science of protecting information by transforming it into a secure format. It ensures confidentiality, integrity, authentication, and non-repudiation of data.
 
 ---
 
-# 1. OSI Model
+# Objectives of Cryptography
 
-The Open Systems Interconnection (OSI) Model consists of seven layers that describe how data travels across a network.
+## Confidentiality
 
-| Layer | Name         | Function                              |
-| ----- | ------------ | ------------------------------------- |
-| 7     | Application  | User interaction and network services |
-| 6     | Presentation | Data formatting and encryption        |
-| 5     | Session      | Session establishment and management  |
-| 4     | Transport    | Reliable data delivery                |
-| 3     | Network      | Routing and IP addressing             |
-| 2     | Data Link    | MAC addressing and switching          |
-| 1     | Physical     | Hardware and signal transmission      |
+Ensures that only authorized users can access information.
+
+### Example
+
+Encrypted messages.
 
 ---
 
-## Memory Trick
+## Integrity
+
+Ensures that data is not modified during transmission.
+
+### Example
+
+Hashing algorithms.
+
+---
+
+## Authentication
+
+Verifies the identity of users or systems.
+
+### Example
+
+Digital Certificates.
+
+---
+
+## Non-Repudiation
+
+Prevents users from denying their actions.
+
+### Example
+
+Digital Signatures.
+
+---
+
+# 1. Symmetric Encryption
+
+Symmetric encryption uses the same key for encryption and decryption.
 
 ```text
-Application
-Presentation
-Session
-Transport
-Network
-Data Link
-Physical
+Plaintext
+    ↓
+Encryption Key
+    ↓
+Ciphertext
+    ↓
+Same Key
+    ↓
+Plaintext
 ```
 
-Mnemonic:
+### Advantages
+
+* Fast
+* Efficient
+* Suitable for large data
+
+### Disadvantages
+
+* Key distribution problem
+
+---
+
+## Common Symmetric Algorithms
+
+### AES
+
+Advanced Encryption Standard.
+
+* Most widely used
+* Supports 128, 192, 256-bit keys
+
+### DES
+
+Data Encryption Standard.
+
+* Older algorithm
+* Considered insecure today
+
+### 3DES
+
+Triple DES.
+
+* Improved version of DES
+* Slower than AES
+
+---
+
+# 2. Asymmetric Encryption
+
+Uses two keys:
 
 ```text
-All People Seem To Need Data Processing
+Public Key
+Private Key
 ```
 
+### Process
+
+```text
+Public Key → Encrypt
+Private Key → Decrypt
+```
+
+### Advantages
+
+* Secure key exchange
+* Digital signatures
+
+### Disadvantages
+
+* Slower than symmetric encryption
+
 ---
 
-# 2. TCP/IP Model
+## Common Asymmetric Algorithms
 
-The TCP/IP model is the practical networking model used on the Internet.
+### RSA
 
-| TCP/IP Layer   | Corresponding OSI Layers           |
-| -------------- | ---------------------------------- |
-| Application    | Application, Presentation, Session |
-| Transport      | Transport                          |
-| Internet       | Network                            |
-| Network Access | Data Link, Physical                |
+Most widely used public-key algorithm.
+
+### ECC
+
+Elliptic Curve Cryptography.
+
+Provides strong security using smaller keys.
 
 ---
 
-# 3. DNS (Domain Name System)
+# 3. Hashing
 
-DNS translates domain names into IP addresses.
+Hashing converts data into a fixed-length value.
+
+### Properties
+
+* One-way function
+* Fixed output length
+* Cannot be reversed
+
+---
+
+## MD5
+
+Output:
+
+```text
+128-bit
+```
+
+Weak and vulnerable to collisions.
+
+---
+
+## SHA-1
+
+Output:
+
+```text
+160-bit
+```
+
+Deprecated due to vulnerabilities.
+
+---
+
+## SHA-256
+
+Output:
+
+```text
+256-bit
+```
+
+Widely used and secure.
+
+---
+
+# 4. Public Key Infrastructure (PKI)
+
+PKI is a framework that manages digital certificates and encryption keys.
+
+### Components
+
+* Certificate Authority (CA)
+* Registration Authority (RA)
+* Digital Certificates
+* Public Keys
+* Private Keys
+
+---
+
+# 5. Digital Certificates
+
+Digital certificates verify the identity of systems and websites.
+
+### Information Contained
+
+* Subject Name
+* Public Key
+* Issuer
+* Expiration Date
+* Digital Signature
+
+---
+
+# 6. SSL/TLS
+
+SSL/TLS secures communication between clients and servers.
 
 ### Example
 
 ```text
-www.google.com
-↓
-142.250.x.x
-```
-
-### Common DNS Record Types
-
-| Record | Purpose              |
-| ------ | -------------------- |
-| A      | IPv4 Address         |
-| AAAA   | IPv6 Address         |
-| MX     | Mail Server          |
-| CNAME  | Alias                |
-| TXT    | Verification Records |
-
----
-
-# 4. HTTP
-
-HTTP (Hypertext Transfer Protocol) is used for web communication.
-
-### Characteristics
-
-* Port 80
-* Unencrypted
-* Plain text communication
-
-### Example Request
-
-```http
-GET / HTTP/1.1
-Host: example.com
+https://example.com
 ```
 
 ---
 
-# 5. HTTPS
+## TLS Handshake Process
 
-HTTPS is the secure version of HTTP.
+### Step 1
 
-### Characteristics
+Client connects to server.
 
-* Port 443
-* Uses SSL/TLS
-* Encrypts communication
+### Step 2
 
-### Benefits
+Server sends certificate.
 
-* Confidentiality
-* Integrity
-* Authentication
+### Step 3
+
+Certificate validation.
+
+### Step 4
+
+Session key generation.
+
+### Step 5
+
+Secure encrypted communication begins.
 
 ---
 
-# 6. IP Addressing
+# OpenSSL
 
-An IP address uniquely identifies a device on a network.
+OpenSSL is a command-line tool used to implement cryptographic functions.
 
-### IPv4 Example
+### Generate SHA256 Hash
 
-```text
-192.168.1.100
+```bash
+sha256sum file.txt
 ```
 
-### Structure
+### Encrypt File
 
-```text
-Network Portion + Host Portion
+```bash
+openssl enc -aes-256-cbc -in secret.txt -out encrypted.enc
+```
+
+### Decrypt File
+
+```bash
+openssl enc -aes-256-cbc -d -in encrypted.enc -out decrypted.txt
 ```
 
 ---
 
-# Private IP Ranges
+# Real-World Applications
 
-| Range                         | Class |
-| ----------------------------- | ----- |
-| 10.0.0.0 - 10.255.255.255     | A     |
-| 172.16.0.0 - 172.31.255.255   | B     |
-| 192.168.0.0 - 192.168.255.255 | C     |
-
----
-
-# 7. Subnetting
-
-Subnetting divides a large network into smaller networks.
-
-### Example
-
-```text
-192.168.1.0/24
-```
-
-### Meaning
-
-```text
-24 bits = Network
-8 bits = Host
-```
-
-### Benefits
-
-* Better performance
-* Improved security
-* Easier management
-
----
-
-# 8. NAT (Network Address Translation)
-
-NAT allows multiple devices to share a single public IP address.
-
-### Types
-
-* Static NAT
-* Dynamic NAT
-* PAT (Port Address Translation)
-
-### Benefits
-
-* Conserves IP addresses
-* Hides internal networks
-* Provides basic security
-
----
-
-# 9. Common Ports & Protocols
-
-| Protocol | Port | Purpose              |
-| -------- | ---- | -------------------- |
-| FTP      | 21   | File Transfer        |
-| SSH      | 22   | Secure Remote Access |
-| Telnet   | 23   | Remote Access        |
-| SMTP     | 25   | Email Sending        |
-| DNS      | 53   | Name Resolution      |
-| HTTP     | 80   | Web Traffic          |
-| POP3     | 110  | Email Retrieval      |
-| IMAP     | 143  | Email Access         |
-| HTTPS    | 443  | Secure Web Traffic   |
-| SMB      | 445  | File Sharing         |
-| RDP      | 3389 | Remote Desktop       |
+* HTTPS Websites
+* VPN Connections
+* Secure Email
+* Digital Signatures
+* Blockchain Technologies
+* Password Storage
 
 ---
 
 # Cybersecurity Relevance
 
-Understanding networking is essential for:
-
-* Reconnaissance
-* Network Scanning
-* Vulnerability Assessment
-* Packet Analysis
-* Firewall Configuration
-* Intrusion Detection
-* Incident Response
+Cryptography protects sensitive information, secures communication channels, validates identities, and ensures trust in digital systems.
 
 ---
 
 # Conclusion
 
-Networking forms the backbone of cybersecurity. A strong understanding of protocols, addressing, DNS, HTTP/HTTPS, and network communication is essential for security professionals.
+Cryptography is a core pillar of cybersecurity. Understanding encryption, hashing, certificates, PKI, and TLS is essential for protecting modern information systems.
