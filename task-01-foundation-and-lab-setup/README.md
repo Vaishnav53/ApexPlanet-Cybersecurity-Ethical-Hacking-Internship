@@ -88,11 +88,6 @@ task-01-foundation-and-lab-setup/
 │   ├── kali-linux/
 │   ├── metasploitable2/
 │   ├── networking/
-│   ├── wireshark/
-│   ├── nmap/
-│   ├── burp-suite/
-│   ├── netcat/
-│   └── openssl/
 │
 ├── notes/
 │   ├── cybersecurity-basics.md
@@ -100,35 +95,17 @@ task-01-foundation-and-lab-setup/
 │   ├── networking-basics.md
 │   └── cryptography-basics.md
 │
-├── practicals/
-│   ├── lab-setup.md
-│   ├── openssl-practical.md
-│   ├── wireshark-practical.md
-│   ├── nmap-practical.md
-│   ├── burp-suite-practical.md
-│   └── netcat-practical.md
-│
-├── reports/
-│   └── task-01-final-report.md
+|── task-01-final-report.md
 │
 └── resources/
     └── linux-cheatsheet.md
 ```
 
 
-### Practicals
-
-* [Lab Setup](./practicals/lab-setup.md)
-* [OpenSSL Practical](./practicals/openssl-practical.md)
-* [Wireshark Practical](./practicals/wireshark-practical.md)
-* [Nmap Practical](./practicals/nmap-practical.md)
-* [Burp Suite Practical](./practicals/burp-suite-practical.md)
-* [Netcat Practical](./practicals/netcat-practical.md)
-
 ### Documentation
 
 * [Linux Cheat Sheet](./resources/linux-cheatsheet.md)
-* [Final Report](./reports/task-01-final-report.md)
+* [Final Report](./task-01-final-report.md)
 
 ---
 
